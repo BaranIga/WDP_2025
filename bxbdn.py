@@ -36,3 +36,48 @@ def square_root(a, epsilon=0.00001):
 
 liczba = 25
 print(f"Pierwiastek kwadratowy z", liczba, "wynosi:", square_root(liczba))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def silnia(x):
+    wynik = 1
+    for i in range(1, x+1):
+        wynik *= i
+    return wynik
+
+def permutacja(n, k):
+    if k>n or n<0 or k<0:
+        return False
+    return silnia(n) // (silnia(k) * silnia(n-k))
+
+def trojkat(n):
+    width = n * 5
+    for i in range(n):
+        wiersz = []
+        for k in range(i+1):
+            wiersz.append(permutacja(i, k))
+        wiersz_string = " "
+        for element in wiersz:
+            wiersz_string += str(element) + " "
+
+        print(wiersz_string.center(width))
+
+trojkat(5)
+
